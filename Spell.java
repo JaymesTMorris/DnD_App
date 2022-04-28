@@ -14,13 +14,12 @@ public class Spell
    private boolean concentration;
    private String casting_time;
    private int level;
-   private String school;
-   private String[] classes;
-   private String[] subclasses;
-   private URL url;
    private String attack_type;
-   private String damage_type;
-   private String save_attribute;
-   private String area_of_effect;
+   private Damage damage;
+   private DC dc;
+   private AOE area_of_effect;
+   private School school;
+   private Class[] classes;
+   private Subclass[] subclasses;
    
 }
