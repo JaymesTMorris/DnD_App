@@ -1,5 +1,5 @@
 public class DCType
 {
-   private String name;
+   public String name;
    
 }

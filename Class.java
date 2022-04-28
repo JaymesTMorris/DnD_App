@@ -1,5 +1,5 @@
 public class Class
 {
-   private String name;
+   public String name;
    
 }

@@ -1,5 +1,5 @@
 public class School
 {
-   private String name;
+   public String name;
    
 }

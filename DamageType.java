@@ -1,5 +1,5 @@
 public class DamageType
 {
-   private String name;
+   public String name;
    
 }

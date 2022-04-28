@@ -1,6 +1,6 @@
 public class AOE
 {
-   private String type;
-   private int size;
+   public String type;
+   public int size;
    
 }

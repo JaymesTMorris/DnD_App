@@ -1,5 +1,5 @@
 public class DC
 {
-   private DCType dc_type;
+   public DCType dc_type;
    
 }

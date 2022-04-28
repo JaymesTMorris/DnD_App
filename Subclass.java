@@ -1,5 +1,5 @@
 public class Subclass
 {
-   private String name;
+   public String name;
    
 }
