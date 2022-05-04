@@ -3,7 +3,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
-public class DnDAppInterfaceScene1 {
+public class DnDInterfaceScene1Controller {
 
     @FXML
     private Button continueButton;

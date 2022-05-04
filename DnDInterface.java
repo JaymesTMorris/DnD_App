@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-public class DndAppInterfaceFirstScene extends Application{
+public class DnDInterface extends Application{
 public static void main (String[] args){
 
 launch(args);
@@ -16,7 +16,7 @@ launch(args);
 public void start(Stage stage) throws Exception
 {
 
-Parent root = FXMLLoader.load(getClass().getResource("DnDBootUpMenu.fxml"));    
+Parent root = FXMLLoader.load(getClass().getResource("DnDSpells.fxml"));    
       Scene scene = new Scene(root);      
       stage.setTitle("Demo JavaFX with Scene BUilder");      
       stage.setScene(scene);
