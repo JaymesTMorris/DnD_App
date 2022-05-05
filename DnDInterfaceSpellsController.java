@@ -87,8 +87,9 @@ public class DnDInterfaceSpellsController implements Initializable
 
       try
       {
+         HttpClient client = HttpClient.newHttpClient();
          HttpRequest request = HttpRequest.newBuilder()
-            .uri(new URI("https://www.dnd5eapi.co/api/spells/" + query.replaceAll(" ","-").toLowerCase() ))
+            .uri(new URI("https://www.dnd5eapi.co/api/spells/" + query.replaceAll(" ","-").toLowerCase() + System.getenv("APIKEY") ))
             .GET()
             .build();
          
@@ -100,8 +101,6 @@ public class DnDInterfaceSpellsController implements Initializable
       { 
          System.out.println("Issue with request");
       }
-      
-      
    }
           
    protected void processSpellData(String data)
