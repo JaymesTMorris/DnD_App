@@ -47,6 +47,9 @@ public class DnDInterfaceSpellsController
    
    @FXML
    private Text SpellNameLabel;
+    
+   private HttpClient client;
+   private Spell spell;
    
    @FXML
    void ChangeLabelText(ActionEvent event)
@@ -57,10 +60,24 @@ public class DnDInterfaceSpellsController
    }
 
    @FXML
-   void FindSpellinApi(ActionEvent event) {}
-    
-   private HttpClient client;
-   private Spell spell;
+   void FindSpellinApi(ActionEvent event)
+   {
+      updateSpellData(SpellChoiceTextField.getText());
+      updateUI();
+   }
+   
+   protected void updateUI()
+   {
+      CastingTimeLabel.setText(this.spell.casting_time);
+      ComponentsLabel.setText(commaFlatten(this.spell.components));
+      DescriptionLabel.setText(paraFlatten(this.spell.desc));
+      DurationLabel.setText(this.spell.duration);
+      LevelLabel.setText(Integer.toString(this.spell.level));
+      RangeLabel.setText(this.spell.range);
+      SchoolLabel.setText(this.spell.school.name);
+      SpellNameLabel.setText(this.spell.name);
+   }
+   
    protected void updateSpellData(String query)
    {
       if(this.client == null)
@@ -88,7 +105,41 @@ public class DnDInterfaceSpellsController
       System.out.println(data);
       
       Gson gson = new Gson();      
-      Spell s = gson.fromJson(data, Spell.class);
+      this.spell = gson.fromJson(data, Spell.class);
+   }
+   
+   private String commaFlatten(String[] input)
+   {
+      String output = "";
+      
+      if(input.length != 0)
+      {
+         output += input[0];
+         
+         for(int i = 1; i < input.length; i++)
+         {
+            output += ", " + input[i];
+         }
+      }
+      
+      return output;
+   }
+   
+   private String paraFlatten(String[] input)
+   {
+      String output = "";
+      
+      if(input.length != 0)
+      {
+         output += "\t" + input[0];
+         
+         for(int i = 1; i < input.length; i++)
+         {
+            output += "\n\t" + input[i];
+         }
+      }
+      
+      return output;
    }
 
 }//end of program
