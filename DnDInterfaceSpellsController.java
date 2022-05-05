@@ -55,7 +55,7 @@ public class DnDInterfaceSpellsController implements Initializable
    private Spell spell;
    
    @FXML
-   void ChangeLabelText(ActionEvent event)
+   protected void ChangeLabelText(ActionEvent event)
    {
       SpellNameLabel.setText(SpellChoiceTextField.getText());
       // Some console output for debugging purposes
@@ -63,10 +63,9 @@ public class DnDInterfaceSpellsController implements Initializable
    }
 
    @FXML
-   void FindSpellinApi(ActionEvent event)
+   protected void FindSpellinApi(ActionEvent event)
    {
       updateSpellData(SpellChoiceTextField.getText());
-      updateUI();
    }
    
    protected void updateUI()
@@ -101,6 +100,8 @@ public class DnDInterfaceSpellsController implements Initializable
       { 
          System.out.println("Issue with request");
       }
+      
+      
    }
           
    protected void processSpellData(String data)
@@ -109,6 +110,12 @@ public class DnDInterfaceSpellsController implements Initializable
       
       Gson gson = new Gson();      
       this.spell = gson.fromJson(data, Spell.class);
+      
+      Platform.runLater( new Runnable() {
+                           public void run() {
+                              updateUI();
+                           }
+                        });
    }
    
    private String commaFlatten(String[] input)
