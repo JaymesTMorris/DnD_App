@@ -1,11 +1,12 @@
+import javafx.fxml.Initializable;
+import java.util.ResourceBundle;
+import javafx.application.Platform;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import java.util.ResourceBundle;
 import javafx.scene.text.Text;
-import javafx.application.Platform;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
