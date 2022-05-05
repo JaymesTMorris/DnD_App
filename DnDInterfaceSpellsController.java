@@ -61,7 +61,7 @@ public class DnDInterfaceSpellsController
     
    private HttpClient client;
    private Spell spell;
-   protected void updateWeatherData()
+   protected void updateSpellData(String query)
    {
       if(this.client == null)
          this.client = HttpClient.newHttpClient();
@@ -69,7 +69,7 @@ public class DnDInterfaceSpellsController
       try
       {
          HttpRequest request = HttpRequest.newBuilder()
-            .uri(new URI("https://www.dnd5eapi.co/" + System.getenv("APIKEY") ))
+            .uri(new URI("https://www.dnd5eapi.co/api/spells/" + query.replaceAll(" ","-").toLowerCase() ))
             .GET()
             .build();
          
