@@ -7,7 +7,7 @@ public class Spell
    public String[] desc;
    public String[] higher_level;
    public String range;
-   public String[] componenets;
+   public String[] components;
    public String material;
    public boolean ritual;
    public String duration;
