@@ -15,7 +15,7 @@ public class NewDnDInterface extends Application
    @Override
    public void start(Stage stage) throws Exception
    {
-      Parent root = FXMLLoader.load(getClass().getResource("DnDSpellProject.fxml"));    
+      Parent root = FXMLLoader.load(getClass().getResource("DnDSpells.fxml"));    
       Scene scene = new Scene(root);      
       stage.setTitle("Demo JavaFX with Scene Builder");      
       stage.setScene(scene);
