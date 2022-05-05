@@ -17,8 +17,8 @@ public void start(Stage stage) throws Exception
 {
 
 Parent root = FXMLLoader.load(getClass().getResource("DnDSpells.fxml"));    
-      Scene scene = new Scene(root);      
-      stage.setTitle("Demo JavaFX with Scene BUilder");      
+      Scene scene = new Scene(root);
+      stage.setTitle("Demo JavaFX with Scene BUilder");
       stage.setScene(scene);
       stage.show();
 

@@ -1,8 +1,10 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.application.Platform;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -13,9 +15,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.io.IOException;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 
-public class DnDInterfaceSpellsController
+public class DnDInterfaceSpellsController implements Initializable
 {
    
    @FXML
