@@ -15,86 +15,80 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 
-public class DnDInterfaceSpellsController {
-
-    @FXML
-    private Text CastingTimeLabel;
-
-    @FXML
-    private Text ComponentsLabel;
-
-    @FXML
-    private Text DescriptionLabel;
-
-    @FXML
-    private Text DurationLabel;
-
-    @FXML
-    private Button FindSpellButton;
-
-    @FXML
-    private Text LevelLabel;
-
-    @FXML
-    private Text RangeLabel;
-
-    @FXML
-    private Text SchoolLabel;
-
-    @FXML
-    private TextField SpellChoiceTextField;
-
-    @FXML
-    private Text SpellNameLabel;
-
-    @FXML
-    void ChangeLabelText(ActionEvent event) {
+public class DnDInterfaceSpellsController
+{
    
-       SpellNameLabel.setText(SpellChoiceTextField.getText());
+   @FXML
+   private Text CastingTimeLabel;
+   
+   @FXML
+   private Text ComponentsLabel;
+   
+   @FXML
+   private Text DescriptionLabel;
+   
+   @FXML
+   private Text DurationLabel;
+   
+   @FXML
+   private Button FindSpellButton;
+   
+   @FXML
+   private Text LevelLabel;
+   
+   @FXML
+   private Text RangeLabel;
+   
+   @FXML
+   private Text SchoolLabel;
+   
+   @FXML
+   private TextField SpellChoiceTextField;
+   
+   @FXML
+   private Text SpellNameLabel;
+   
+   @FXML
+   void ChangeLabelText(ActionEvent event)
+   {
+      SpellNameLabel.setText(SpellChoiceTextField.getText());
       // Some console output for debugging purposes
       System.out.println("Spell Found");
+   }
 
-    }
-
-    @FXML
-    void FindSpellinApi(ActionEvent event) {
-
-    }
+   @FXML
+   void FindSpellinApi(ActionEvent event) {}
     
-    private HttpClient client;
-    private Spell spell;
-    protected void updateWeatherData() {
-   
+   private HttpClient client;
+   private Spell spell;
+   protected void updateWeatherData()
+   {
       if(this.client == null)
          this.client = HttpClient.newHttpClient();
 
-     try {
-            
-            HttpRequest request = HttpRequest.newBuilder()            
-              .uri(new URI("https://www.dnd5eapi.co/" + System.getenv("APIKEY") ))
-              .GET()
-              .build();
-              
+      try
+      {
+         HttpRequest request = HttpRequest.newBuilder()
+            .uri(new URI("https://www.dnd5eapi.co/" + System.getenv("APIKEY") ))
+            .GET()
+            .build();
+         
+         client.sendAsync(request, BodyHandlers.ofString())
+            .thenApply(HttpResponse::body)
+            .thenAccept(this::processSpellData);
+      }
+      catch(URISyntaxException e)
+      { 
+         System.out.println("Issue with request");
+      }
+   }
           
-           client.sendAsync(request, BodyHandlers.ofString())
-                .thenApply(HttpResponse::body)
-                .thenAccept(this::processSpellData);     
-           
-          } catch(URISyntaxException e) { 
-            // This message can be more informative if your API is more complex
-            System.out.println("Issue with request");
-          }
-          }
-          
-  protected void processSpellData(String data) {   
-      
+   protected void processSpellData(String data)
+   {
       System.out.println(data);
-                    
+      
       Gson gson = new Gson();      
-      Spell s = gson.fromJson(data, Spell.class);    
-   }   
-            
-     
+      Spell s = gson.fromJson(data, Spell.class);
+   }
 
 }//end of program
-
