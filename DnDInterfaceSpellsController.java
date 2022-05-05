@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import java.util.ResourceBundle;
 import javafx.scene.text.Text;
 import javafx.application.Platform;
 
@@ -142,6 +143,13 @@ public class DnDInterfaceSpellsController implements Initializable
       }
       
       return output;
+   }
+   
+   @Override
+   public void initialize(URL location, ResourceBundle resources)
+   {
+      updateSpellData("fireball");
+      updateUI();
    }
 
 }//end of program
