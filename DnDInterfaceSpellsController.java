@@ -13,7 +13,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.io.IOException;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 
 public class DnDInterfaceSpellsController
 {
