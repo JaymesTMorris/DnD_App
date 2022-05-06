@@ -17,6 +17,7 @@ public class DnDInterface extends Application
       Parent root = FXMLLoader.load(getClass().getResource("SpellsGUI.fxml"));    
       Scene scene = new Scene(root);
       stage.setTitle("Demo JavaFX with Scene BUilder");
+      
       stage.setScene(scene);
       stage.show();
    }
