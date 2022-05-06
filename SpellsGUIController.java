@@ -1,7 +1,3 @@
-
-public class PleaseProvideControllerClassName {
-
-}
 import javafx.fxml.Initializable;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -163,5 +159,7 @@ public class SpellsGUIController implements Initializable
       updateSpellData("fireball");
       updateUI();
    }
+
+
 
 }//end of program
