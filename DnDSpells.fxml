@@ -84,7 +84,7 @@
       <Button fx:id="FindSpellButton" mnemonicParsing="false" onAction="#FindSpellinApi" text="Find Spell" GridPane.columnIndex="2" />
       <ImageView fitHeight="64.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
          <image>
-            <Image url="@../../lib/unnamed.png" />
+            <Image url="@DnD_Logo_Image.png" />
          </image>
       </ImageView>
    </children>

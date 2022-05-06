@@ -58,15 +58,15 @@ public class DnDInterfaceSpellsController implements Initializable
    @FXML
    protected void ChangeLabelText(ActionEvent event)
    {
-      SpellNameLabel.setText(SpellChoiceTextField.getText());
-      // Some console output for debugging purposes
-      System.out.println("Spell Found");
+      // SpellNameLabel.setText(SpellChoiceTextField.getText());
+//       // Some console output for debugging purposes
+//       System.out.println("Spell Found");
    }
 
    @FXML
    protected void FindSpellinApi(ActionEvent event)
    {
-      updateSpellData(SpellChoiceTextField.getText());
+      //updateSpellData(SpellChoiceTextField.getText());
    }
    
    protected void updateUI()
