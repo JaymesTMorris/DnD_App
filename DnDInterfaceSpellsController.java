@@ -1,10 +1,12 @@
+import javafx.fxml.Initializable;
+import java.util.ResourceBundle;
+import javafx.application.Platform;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
-import java.util.ResourceBundle;
+import javafx.scene.text.Text;import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
 import javafx.application.Platform;
 
@@ -23,34 +25,34 @@ public class DnDInterfaceSpellsController implements Initializable
 {
    
    @FXML
-   private Text CastingTimeLabel;
-   
+    private Text CastingTimeLabel;
+
    @FXML
-   private Text ComponentsLabel;
-   
+    private Text ComponentsLabel;
+
    @FXML
-   private Text DescriptionLabel;
-   
+    private Text DescriptionLabel;
+
    @FXML
-   private Text DurationLabel;
-   
+    private Text DurationLabel;
+
    @FXML
-   private Button FindSpellButton;
-   
+    private Button FindSpellButton;
+
    @FXML
-   private Text LevelLabel;
-   
+    private Text LevelLabel;
+
    @FXML
-   private Text RangeLabel;
-   
+    private Text RangeLabel;
+
    @FXML
-   private Text SchoolLabel;
-   
+    private Text SchoolLabel;
+
    @FXML
-   private TextField SpellChoiceTextField;
-   
+    private TextField SpellChoiceTextField;
+
    @FXML
-   private Text SpellNameLabel;
+    private Text SpellNameLabel;
     
    private HttpClient client;
    private Spell spell;
@@ -85,11 +87,12 @@ public class DnDInterfaceSpellsController implements Initializable
    {
       if(this.client == null)
          this.client = HttpClient.newHttpClient();
-
+   
       try
       {
+         HttpClient client = HttpClient.newHttpClient();
          HttpRequest request = HttpRequest.newBuilder()
-            .uri(new URI("https://www.dnd5eapi.co/api/spells/" + query.replaceAll(" ","-").toLowerCase() ))
+            .uri(new URI("https://www.dnd5eapi.co/api/spells/" + query.replaceAll(" ","-").toLowerCase() + System.getenv("APIKEY") ))
             .GET()
             .build();
          
@@ -101,8 +104,6 @@ public class DnDInterfaceSpellsController implements Initializable
       { 
          System.out.println("Issue with request");
       }
-      
-      
    }
           
    protected void processSpellData(String data)
@@ -112,11 +113,12 @@ public class DnDInterfaceSpellsController implements Initializable
       Gson gson = new Gson();      
       this.spell = gson.fromJson(data, Spell.class);
       
-      Platform.runLater( new Runnable() {
-                           public void run() {
-                              updateUI();
-                           }
-                        });
+      Platform.runLater( 
+         new Runnable() {
+            public void run() {
+               updateUI();
+            }
+         });
    }
    
    private String commaFlatten(String[] input)
