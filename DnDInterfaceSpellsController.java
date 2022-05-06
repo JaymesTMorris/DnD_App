@@ -100,7 +100,7 @@ public class DnDInterfaceSpellsController implements Initializable
       }
       catch(URISyntaxException e)
       { 
-         System.out.println("Issue with request");
+         System.out.println("Request Issue.");
       }
    }
           
