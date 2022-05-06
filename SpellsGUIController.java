@@ -6,9 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;import java.util.ResourceBundle;
-import java.util.prefs.Preferences;
-import javafx.application.Platform;
+import javafx.scene.text.Text;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -21,7 +19,7 @@ import java.io.IOException;
 
 import com.google.gson.*;
 
-public class DnDInterfaceSpellsController implements Initializable
+public class SpellsGUIController implements Initializable
 {
    
    @FXML
@@ -159,6 +157,7 @@ public class DnDInterfaceSpellsController implements Initializable
    public void initialize(URL location, ResourceBundle resources)
    {
       updateSpellData("fireball");
+      updateUI();
    }
 
 }//end of program

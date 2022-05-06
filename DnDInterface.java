@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.util.*;
 
 public class DnDInterface extends Application
 {
@@ -13,10 +12,9 @@ public class DnDInterface extends Application
       launch(args);
    }//end of main
 
-   @Override
    public void start(Stage stage) throws Exception
    {
-      Parent root = FXMLLoader.load(getClass().getResource("DnDSpells.fxml"));    
+      Parent root = FXMLLoader.load(getClass().getResource("SpellsGUI.fxml"));    
       Scene scene = new Scene(root);
       stage.setTitle("Demo JavaFX with Scene BUilder");
       stage.setScene(scene);
