@@ -6,7 +6,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+import javafx.scene.text.Text;import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
+import javafx.application.Platform;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -157,7 +159,6 @@ public class DnDInterfaceSpellsController implements Initializable
    public void initialize(URL location, ResourceBundle resources)
    {
       updateSpellData("fireball");
-      updateUI();
    }
 
 }//end of program
